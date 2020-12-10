@@ -1,6 +1,6 @@
 import Foundation
 
-func partOne(input: [Int], sum: Int = 2020) -> Int? {
+fileprivate func partOne(input: [Int], sum: Int = 2020) -> Int? {
     
     var entries: Set<Int> = []
     
@@ -17,10 +17,10 @@ func partOne(input: [Int], sum: Int = 2020) -> Int? {
         .first
 }
 
-func partTwo(input: [Int], sum: Int = 2020) -> Int? {
+fileprivate func partTwo(input: [Int], sum: Int = 2020) -> Int? {
     
     return input
-        .compactMap{ n1 -> Int? in
+        .compactMap { n1 -> Int? in
             var entries: Set<Int> = []
             
             return input
@@ -40,5 +40,7 @@ func partTwo(input: [Int], sum: Int = 2020) -> Int? {
 
 public func dayOne(input: [Int]) -> String {
     
-    return "\(partOne(input: input)!), \(partTwo(input: input)!)"
+    let results = (partOne(input: input)!, partTwo(input: input)!)
+    print("DAY ONE\nPart one:", results.0, "\nPart two:", results.1)
+    return "\(results.0), \(results.1)"
 }
