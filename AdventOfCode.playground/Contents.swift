@@ -9,6 +9,8 @@ func content(_ inputFileName: String) -> String {
 dayOne(input: Input.one)
 dayTwo(input: Input.two)
 dayThree(input: Input.three)
+dayFour(input: Input.four)
+dayFive(input: Input.five)
 
 // MARK: - Inputs
 
@@ -23,6 +25,21 @@ struct Input {
         .compactMap { String($0) }
     
     static let three: [String] = content("Day3")
+        .split(separator: "\n")
+        .compactMap { String($0) }
+    
+    static let four: [[String: String]] = content("Day4")
+        .components(separatedBy: "\n\n")
+        .map {
+            let passport = $0.split(separator: "\n").joined(separator: " ").split(separator: " ")
+            return passport
+                .map { $0.components(separatedBy: ":") }
+                .reduce(into: [String:String]()) { dict, pair in
+                    dict[pair[0]] = pair[1]
+                }
+        }
+    
+    static let five: [String] = content("Day5")
         .split(separator: "\n")
         .compactMap { String($0) }
 }

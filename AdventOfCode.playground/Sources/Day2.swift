@@ -15,7 +15,7 @@ fileprivate func partOne(input: [String]) -> Int {
         
         guard let min = Int(times[0]), let max = Int(times[1]) else { continue }
         
-        if (min...max ~= numOfChars) { counter += 1 }
+        if min...max ~= numOfChars { counter += 1 }
     }
     
     return counter
