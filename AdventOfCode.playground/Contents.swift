@@ -11,6 +11,7 @@ dayTwo(input: Input.two)
 dayThree(input: Input.three)
 dayFour(input: Input.four)
 dayFive(input: Input.five)
+daySix(input: Input.six)
 
 // MARK: - Inputs
 
@@ -42,4 +43,7 @@ struct Input {
     static let five: [String] = content("Day5")
         .split(separator: "\n")
         .compactMap { String($0) }
+    
+    static let six: [String] = content("Day6")
+        .components(separatedBy: "\n\n")
 }
